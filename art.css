@@ -1,0 +1,19 @@
+h1{
+    color:rgb(243, 246, 248);
+    text-shadow: 3px 3px 5px rgb(109, 6, 128);
+    font-family: fantasy;
+    
+}
+abbr
+{
+    color:rgb(147, 110, 207);
+    font-weight: bold;
+    text-decoration:underline;
+}
+.Black{
+    font-style:unset;
+    font-weight: bold;
+}
+img{
+    box-shadow:5px 5px 7px;
+}
