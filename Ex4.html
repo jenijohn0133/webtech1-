@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Tool Trade Form</title>
+    <link rel="stylesheet" href="style4.css">
+    <script>
+        // Helper function for consistent alerts
+        function showAlert(message, fieldId) {
+            alert(message);
+            document.getElementById(fieldId).focus();
+            return false;
+        }
+
+        function validateForm() {
+            let name = document.getElementById("name").value;
+            let phone = document.getElementById("phno").value;
+            let address = document.getElementById("address").value;
+            let doorno = document.getElementById("doorno").value;
+            let street = document.getElementById("stname").value;
+            let city = document.getElementById("city").value;
+            let pin = document.getElementById("pin").value;
+
+            // Name validation
+            if (name === "") {
+                return showAlert("Name must be filled out", "name");
+            }
+
+            // Phone number validation (should be 10 digits)
+            if (phone === "" || !/^\d{10}$/.test(phone)) {
+                return showAlert("Please enter a valid 10-digit phone number", "phno");
+            }
+
+            // Address validation
+            if (address === "") {
+                return showAlert("Address must be filled out", "address");
+            }
+
+            // Door no validation
+            if (doorno === "") {
+                return showAlert("Door number must be filled out", "doorno");
+            }
+
+            // Street name validation
+            if (street === "") {
+                return showAlert("Street name must be filled out", "stname");
+            }
+
+            // City validation
+            if (city === "") {
+                return showAlert("City must be filled out", "city");
+            }
+
+            // Pincode validation (should be 6 digits)
+            if (pin === "" || !/^\d{6}$/.test(pin)) {
+                return showAlert("Please enter a valid 6-digit pincode", "pin");
+            }
+
+            // Delivery method validation
+            if (!document.querySelector('input[name="delivery"]:checked')) {
+                alert("Please select a delivery method");
+                return false;
+            }
+
+            // Tool Type validation (at least one checkbox must be checked)
+            if (!document.querySelector('input[name="toolType"]:checked')) {
+                alert("Please select at least one tool type");
+                return false;
+            }
+
+            // Brand validation (one radio must be checked)
+            if (!document.querySelector('input[name="brand"]:checked')) {
+                alert("Please select a brand");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+        <style>
+            body{
+               background-image: url(Tools.jpg);
+               background-size: cover;
+               background-position: center;
+               background-repeat: no-repeat;
+               text-align: center;
+               margin-top: 50px;
+           }
+           h1{
+               color: rgba(36, 12, 251, 0.808);
+           }
+       </style>
+</head>
+<body>
+    <form onsubmit="return validateForm()">
+        <h1 style="text-align: center;">Art Tool Trade Form</h1>
+        <img src="Art.jpg" class="rounded float-center" alt="Home" width="auto" height="auto">
+        <p style="font-size: 20px;"><b>Personal Details</b></p>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="phno">Phone number:</label><br>
+        <input type="text" id="phno" name="phno"><br>
+        <label for="address">Address:</label><br>
+        <input type="text" id="address" name="address"><br>
+        <label for="doorno">Door number:</label><br>
+        <input type="text" id="doorno" name="doorno"><br>
+        <label for="stname">Street name:</label><br>
+        <input type="text" id="stname" name="stname"><br>
+        <label for="city">City:</label><br>
+        <input type="text" id="city" name="city"><br>
+        <label for="pin">Pincode:</label><br>
+        <input type="text" id="pin" name="pin"><br><br>
+        <p style="font-size: 20px;"><b>Delivery Details</b></p>
+        <input type="radio" id="homeDelivery" name="delivery" value="Home Delivery">
+        <label for="homeDelivery">Home Delivery</label>
+        <input type="radio" id="inPerson" name="delivery" value="In-Person">
+        <label for="inPerson">In-Person</label><br><br>
+        <p style="font-size: 20px;"><b>Tool Type</b></p>
+        <input type="checkbox" id="brush" name="toolType" value="Brush">
+        <label for="brush">Brush</label><br>
+        <input type="checkbox" id="palette" name="toolType" value="Palette">
+        <label for="palette">Palette</label><br>
+        <input type="checkbox" id="easel" name="toolType" value="Easel">
+        <label for="easel">Easel</label><br>
+        <input type="checkbox" id="canvas" name="toolType" value="Canvas">
+        <label for="canvas">Canvas</label><br><br>
+        <p style="font-size: 20px;"><b>Brand</b></p>
+        <input type="radio" id="brand1" name="brand" value="Winsor & Newton">
+        <label for="brand1">Winsor & Newton</label><br>
+        <input type="radio" id="brand2" name="brand" value="Faber-Castell">
+        <label for="brand2">Faber-Castell</label><br>
+        <input type="radio" id="brand3" name="brand" value="Golden">
+        <label for="brand3">Golden</label><br>
+        <input type="radio" id="brand4" name="brand" value="Liquitex">
+        <label for="brand4">Liquitex</label><br>
+        <input type="radio" id="brand5" name="brand" value="Arteza">
+        <label for="brand5">Arteza</label><br><br>
+        <footer style="text-align: center;">
+        <input type="submit" value="Submit" class="button">
+        </footer>
+    </form>
+</body>
+</html>
