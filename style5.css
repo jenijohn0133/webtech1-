@@ -1,0 +1,86 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: rgb(255, 245, 230); /* Canvas-inspired beige background */
+    font-size: medium;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px 0;
+    overflow: hidden;
+    border: 3px solid rgb(255, 165, 0); /* Vibrant orange border */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.image {
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.text {
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    z-index: 2; /* Ensure the text is above the image */
+    color: rgb(255, 255, 255); /* White text */
+    background-color: rgba(255, 69, 0, 0.8); /* Vibrant orange-red background */
+    padding: 10px;
+    border-radius: 10px; /* Rounded text box */
+    text-align: center;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.container:hover .image {
+    transform: translateY(30px); /* Push image down */
+}
+
+.container:hover .text {
+    opacity: 1; /* Make text visible */
+    transform: translate(-50%, 0); /* Position text above the image */
+}
+
+#hoverText {
+    text-align: center;
+    background-color: rgb(255, 69, 0); /* Bold orange-red background */
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#hoverText:hover {
+    background-color: rgb(255, 99, 71); /* Softer red on hover */
+}
+
+#time1 {
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 18px;
+    color: rgb(34, 34, 34);
+    background-color: rgb(245, 245, 245);
+    padding: 10px;
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 5px;
+}
+
+.container-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

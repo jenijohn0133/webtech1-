@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Tools</title>
+    <link rel="stylesheet" href="style5.css">
+</head>
+<body>
+    <div class="container-wrapper">
+        <div id="time1">
+            <button id="showTimeButton">Show Current Time</button>
+            <div id="time"></div>
+        </div>
+        <div class="container">
+            <img src="art.jpg" alt="Art Tools" class="image">
+            <div class="text">"Creativity takes courage" – Henri Matisse</div>
+        </div>
+        <div id="hoverText">Hover here to reveal an art tip</div>
+        <div id="tip" style="display: none; margin-top: 10px;">Art Tip: Use complementary colors to make your painting pop!</div>
+    </div>
+
+    <script>
+        let interval;
+
+        document.getElementById('showTimeButton').addEventListener('click', function() {
+            clearInterval(interval);
+            updateTime();
+            interval = setInterval(updateTime, 1000);
+        });
+
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            document.getElementById('time').textContent = timeString;
+        }
+
+        const hoverText = document.getElementById('hoverText');
+        const tip = document.getElementById('tip');
+
+        hoverText.addEventListener('mouseenter', () => {
+            hoverText.textContent = 'Did You Know?';
+            tip.style.display = 'block';
+        });
+
+        hoverText.addEventListener('mouseleave', () => {
+            hoverText.textContent = 'Hover here to reveal an art tip';
+            tip.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
