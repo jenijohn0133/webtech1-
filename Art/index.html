@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Art Tools Database</title>
+</head>
+<body>
+    <h1>Theme Art Tools Database</h1>
+    <hr>    
+
+    <!-- Link to display all art tools -->
+    <a href="http://localhost:8080/Art/ToolsDatabaseServlet">Display all art tools</a>
+    <hr>
+
+    <!-- Form to view art tools by category -->
+    <h3>View Art Tools by Category</h3>
+    <form action="http://localhost:8080/Art/ToolsDatabaseServlet2" method="get">
+        <!-- Drop down selection -->
+        <label for="tool">Art Tool</label>
+        <select id="tool" name="tool">
+            <option value="empty">--</option>
+            <option value="Brush">Brush</option>
+            <option value="Canvas">Canvas</option>
+            <option value="Palette">Palette</option>
+            <option value="Easel">Easel</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Submit"/>
+    </form>
+    <hr>
+
+    <!-- Form to insert art tool data into the database -->
+    <h2>Insert Art Tool Data into Database</h2>
+    <form action="http://localhost:8080/Art/ToolsDatabaseServlet3" method="post">
+        <p>Tool ID:</p> 
+        <input type="text" name="toolid" placeholder="e.g., T123" required/>
+        <p>Tool Name:</p> 
+        <input type="text" name="toolname" placeholder="e.g., Premium Brush" required/>
+        <p>Tool Price (USD):</p> 
+        <input type="number" name="toolprice" step="0.01" placeholder="e.g., 19.99" required/>
+        <br/><br/>
+        <input type="submit" value="Submit"/>
+    </form>
+</body>
+</html>

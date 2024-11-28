@@ -1,0 +1,43 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class RarpSimulator {
+
+    // Simulated RARP table (MAC address -> IP address)
+    private static Map<String, String> rarpTable = new HashMap<>();
+
+    public static void main(String[] args) {
+        // Populate the RARP table with some MAC -> IP address mappings
+        rarpTable.put("00:1A:2B:3C:4D:5E", "192.168.1.1");
+        rarpTable.put("00:1A:2B:3C:4D:5F", "192.168.1.2");
+        rarpTable.put("00:1A:2B:3C:4D:60", "192.168.1.3");
+
+        // Simulate a RARP request
+        String macRequest = "00:1A:2B:3C:4D:5F";
+        System.out.println("RARP Request: What is the IP address for MAC " + macRequest + "?");
+
+        // Send RARP Request and get the response
+        String ipAddress = rarpRequest(macRequest);
+        System.out.println("RARP Response: The IP address for MAC " + macRequest + " is " + ipAddress);
+
+        // Simulate a RARP request for an unknown MAC address
+        String unknownMacRequest = "00:1A:2B:3C:4D:99";
+        System.out.println("\nRARP Request: What is the IP address for MAC " + unknownMacRequest + "?");
+        String unknownIpAddress = rarpRequest(unknownMacRequest);
+        System.out.println("RARP Response: " + unknownIpAddress);
+    }
+
+    /**
+     * Simulate a RARP request for a MAC address.
+     * @param mac The MAC address to resolve to an IP address.
+     * @return The corresponding IP address or a message if not found.
+     */
+    public static String rarpRequest(String mac) {
+        // Check if the MAC exists in the RARP table
+        if (rarpTable.containsKey(mac)) {
+            return rarpTable.get(mac);  // Return the corresponding IP address
+        } else {
+            return "No matching IP address found for MAC " + mac;  // Return a "not found" message
+        }
+    }
+}
